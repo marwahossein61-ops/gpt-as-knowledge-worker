@@ -25,7 +25,7 @@ from prompts import *
 MODEL_NAME = "text-davinci-003"
 
 
-def get_parameter_sets() -> Iterator[dict]:
+def get_parameter_sets() -> Iterator:
     """Generate a set of parameter sets."""
     for temperature in [0.0, 0.5, 1.0]:  # 0.0, 0.5, 1.0
         for max_tokens in [
@@ -56,7 +56,7 @@ def get_next_session_path() -> Path:
     session_number = 1
 
     while True:
-        session_id = f"cpa-exam-{session_number:03d}"
+        session_id = f"cpa-exam-{session_number:1}"
         session_path = (
             Path(__file__).parent.parent / "results" / "questions-02" / "sessions-001"
         )
